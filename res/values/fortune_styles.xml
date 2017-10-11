@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024 FortuneOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- This file only contains custom attribute and style definition for preferences -->
+<!-- Things unrelated to preference framework UI customization should go to other styles files -->
+<resources>
+    <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase">
+        <item name="customPreferenceStyle">@style/CustomPreference</item>
+    </style>
+
+    <style name="CustomPreference" parent="Preference.Material">
+        <item name="allowDividerAbove">false</item>
+    </style>
+</resources>
