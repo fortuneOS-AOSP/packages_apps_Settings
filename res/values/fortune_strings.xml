@@ -8,4 +8,7 @@
     <!-- fortuneOS version -->
     <string name="fortune_version">fortuneOS version</string>
 
+    <!-- fortuneOS keeper -->
+    <string name="fortune_keeper">fortuneOS keeper</string>
+
 </resources>
