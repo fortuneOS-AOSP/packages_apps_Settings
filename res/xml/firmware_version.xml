@@ -38,6 +38,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FortuneDisplayVersionPreferenceController"/>
 
+    <!-- Fortune Keeper -->
+    <Preference
+        android:key="fortune_keeper"
+        android:title="@string/fortune_keeper"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.FortuneKeeperPreferenceController"/>
+
     <!-- Security patch -->
     <Preference
         android:key="security_key"
