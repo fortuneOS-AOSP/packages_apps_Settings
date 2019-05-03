@@ -205,6 +205,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 import org.fortune.craft.FortuneCraft;
 
 import ink.kscope.settings.wifi.tether.WifiTetherClientManager;
+import com.android.settings.livedisplay.LiveDisplaySettings;
 
 public class SettingsGateway {
 
@@ -397,7 +398,8 @@ public class SettingsGateway {
             VibrationIntensitySettingsFragment.class.getName(),
             FortuneCraft.class.getName(),
             WifiTetherClientManager.class.getName(),
-            WirelessDebuggingFragment.class.getName()
+            WirelessDebuggingFragment.class.getName(),
+            LiveDisplaySettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
