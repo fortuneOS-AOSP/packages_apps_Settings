@@ -11,4 +11,7 @@
     <!-- fortuneOS keeper -->
     <string name="fortune_keeper">fortuneOS keeper</string>
 
+    <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+    <string name="about_device_name">Device name</string>
+
 </resources>
