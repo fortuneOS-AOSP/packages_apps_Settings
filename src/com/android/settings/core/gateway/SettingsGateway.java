@@ -202,6 +202,8 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import org.fortune.craft.FortuneCraft;
 
+import ink.kscope.settings.wifi.tether.WifiTetherClientManager;
+
 public class SettingsGateway {
 
     /**
@@ -390,7 +392,8 @@ public class SettingsGateway {
             ScreenTimeoutSettings.class.getName(),
             ResetNetwork.class.getName(),
             VibrationIntensitySettingsFragment.class.getName(),
-            FortuneCraft.class.getName()
+            FortuneCraft.class.getName(),
+            WifiTetherClientManager.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
