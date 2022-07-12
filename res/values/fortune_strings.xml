@@ -33,4 +33,7 @@
     <!-- Black theme -->
     <string name="system_black_theme_title">Vivid Colors</string>
     <string name="system_black_theme_summary">Use colorful and darker monet shades</string>
+
+    <!-- Summary for list to control apps that ignore battery saving restrictions -->
+    <string name="high_power_apps_summary">Battery optimization availability</string>
 </resources>
