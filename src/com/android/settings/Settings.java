@@ -495,4 +495,9 @@ public class Settings extends SettingsActivity {
      * FortuneCraft Activity
      */
     public static class FortuneCraftActivity extends SettingsActivity {}
+
+    /**
+     * Activity for PreviouslyConnectedDeviceDashboardFragment
+     */
+    public static class PreviouslyConnectedDevicesActivity extends SettingsActivity { /* empty */ }
 }
