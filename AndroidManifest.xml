@@ -5179,6 +5179,19 @@
                 android:value="true" />
         </activity>
 
+        <activity
+            android:name=".Settings$WirelessDebuggingActivity"
+            android:label="@string/adb_wireless_settings"
+            android:exported="true"
+            android:icon="@drawable/tile_icon_debugging_wireless">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.WIRELESS_DEBUGGING_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.development.WirelessDebuggingFragment"/>
+        </activity>
+
         <!-- FortuneCraft -->
         <activity android:name=".Settings$FortuneCraftActivity"
             android:label="@string/craft_dashboard_title"
@@ -5191,5 +5204,6 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="org.fortune.craft.FortuneCraft" />
         </activity>
+
     </application>
 </manifest>
