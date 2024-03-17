@@ -21,7 +21,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.widget.Switch;
+
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import androidx.preference.Preference;
 
@@ -29,8 +31,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SettingsMainSwitchBar;
-import com.android.settingslib.widget.OnMainSwitchChangeListener;
-import com.android.settingslib.widget.RadioButtonPreference;
+import com.android.settingslib.widget.SelectorWithWidgetPreference;
 
 public class PulseAmbientLightSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceClickListener {
@@ -41,15 +42,15 @@ public class PulseAmbientLightSettings extends SettingsPreferenceFragment
     private static final String COLOR_ACCENT = "ambient_notification_light_accent";
 
     private PulseAmbientLightEnabler mPulseAmbientLightEnabler;
-    private RadioButtonPreference mColorAutomatic;
-    private RadioButtonPreference mColorAccent;
+    private SelectorWithWidgetPreference mColorAutomatic;
+    private SelectorWithWidgetPreference mColorAccent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pulse_ambient_light_settings);
-        mColorAutomatic = (RadioButtonPreference) findPreference(COLOR_AUTOMATIC);
-        mColorAccent = (RadioButtonPreference) findPreference(COLOR_ACCENT);
+        mColorAutomatic = (SelectorWithWidgetPreference) findPreference(COLOR_AUTOMATIC);
+        mColorAccent = (SelectorWithWidgetPreference) findPreference(COLOR_ACCENT);
 
         mColorAutomatic.setOnPreferenceClickListener(this);
         mColorAccent.setOnPreferenceClickListener(this);
@@ -61,7 +62,7 @@ public class PulseAmbientLightSettings extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceClick(Preference preference) {
         final String key = preference.getKey();
-        if (preference instanceof RadioButtonPreference) {
+        if (preference instanceof SelectorWithWidgetPreference) {
             updateState(key);
         }
         return true;
@@ -122,7 +123,7 @@ public class PulseAmbientLightSettings extends SettingsPreferenceFragment
         mColorAccent.setEnabled(enabled);
     }
 
-    private class PulseAmbientLightEnabler implements OnMainSwitchChangeListener {
+    private class PulseAmbientLightEnabler implements OnCheckedChangeListener {
 
         private final Context mContext;
         private final SettingsMainSwitchBar mSwitchBar;
@@ -162,7 +163,7 @@ public class PulseAmbientLightSettings extends SettingsPreferenceFragment
         }
 
         @Override
-        public void onSwitchChanged(Switch switchView, boolean isChecked) {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             Settings.System.putIntForUser(
                     mContext.getContentResolver(),
                     Settings.System.AMBIENT_NOTIFICATION_LIGHT, isChecked ? 1 : 0, UserHandle.USER_CURRENT);
