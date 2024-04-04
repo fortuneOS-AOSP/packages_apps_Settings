@@ -498,11 +498,6 @@ public class Settings extends SettingsActivity {
     public static class FortuneCraftActivity extends SettingsActivity {}
 
     /**
-     * Activity for PreviouslyConnectedDeviceDashboardFragment
-     */
-    public static class PreviouslyConnectedDevicesActivity extends SettingsActivity { /* empty */ }
-
-    /**
      * Activity for WirelessDebuggingActivity
      */
     public static class WirelessDebuggingActivity extends SettingsActivity { /* empty */ }
