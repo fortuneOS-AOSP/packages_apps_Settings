@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2021 xdroid, xyzprjkt
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- xd. Placeholder -->
+    <string name="fortune_title_placeholder">loremipsum</string>
+    <string name="fortune_summary_placeholder">loremipsum</string>
+
+    <!-- xd. fake toolbar -->
+    <string name="fortune_firmware_info">Informasi firmware</string>
+    <string name="fortune_hardware_info">Informasi hardware</string>
+    <string name="fortune_about_phone">Tentang ponsel</string>
+
+    <!-- xd. Dashboard -->
+    <string name="fortune_dashboard_greet_default">Apa yang sedang Anda cari?</string>
+    <string name="fortune_dashboard_greet1">Apa yang sedang Anda cari?</string>
+    <string name="fortune_dashboard_greet2">Mencari sesuatu?</string>
+    <string name="fortune_dashboard_greet3">Perlu mengubah sesuatu?</string>
+    <string name="fortune_dashboard_greet4">Mencari sesuatu?</string>
+    <string name="fortune_dashboard_greet5">Butuh sesuatu?</string>
+    <string name="fortune_dashboard_greet6">Ayo lakukan sesuatu yang keren</string>
+    <string name="fortune_dashboard_greet7">Madosi nopo nggeh?</string>
+    <string name="fortune_dashboard_greet8">Naon anu anjeun pilarian sobat?</string>
+    <string name="fortune_dashboard_greet9">He rek! badhe madosi nopo?</string>
+    <string name="fortune_dashboard_greet10">Halo! Sugeng rawuh ing fortuneOS</string>
+    <string name="fortune_dashboard_greet11">Apo yang ang cari?</string>
+    <string name="fortune_dashboard_greet12">Wilujeng sumping ka fortuneOS</string>
+    <string name="fortune_dashboard_device">Tentang ponsel</string>
+    <string name="fortune_dashboard_account">Akun</string>
+    <string name="fortune_dashboard_account_summary">Atur semua profil user yang tersedia di perangkat ini disini</string>
+    <string name="fortune_dashboard_network">Konektivitas</string>
+    <string name="fortune_dashboard_portable_hotspot">Hotspot portabel</string>
+    <string name="fortune_dashboard_conectivity">Perangkat</string>
+    <string name="fortune_dashboard_display">Tampilan</string>
+    <string name="fortune_dashboard_battery">Baterai</string>
+    <string name="fortune_dashboard_sound">Suara</string>
+    <string name="fortune_dashboard_apps">Aplikasi</string>
+    <string name="fortune_dashboard_notif">Notifikasi</string>
+    <string name="fortune_dashboard_storage">Penyimpanan</string>
+    <string name="fortune_dashboard_privacy">Privasi</string>
+    <string name="fortune_dashboard_location">Lokasi</string>
+    <string name="fortune_dashboard_security">Keamanan</string>
+    <string name="fortune_dashboard_accessibility">Aksesibilitas</string>
+    <string name="fortune_dashboard_system">Lainnya</string>
+    <string name="fortune_dashboard_wellbeing">Kesehatan Digital</string>
+    <string name="fortune_dashboard_support">Dukungan</string>
+
+    <!-- xd. Preferences -->
+    <string name="fortune_firmware_info_summary">Informasi tentang firmware di ponsel ini</string>
+    <string name="fortune_hardware_info_summary">Informasi tentang hardware di ponsel ini</string>
+    <string name="fortune_device_owner">Nama pemilik</string>
+    <string name="fortune_legal_information_summary">Informasi hukum lisensi</string>
+    <string name="fortune_regulatory_summary">Informasi regulasi</string>
+    <string name="fortune_wifi_saved">Jaringan tersimpan</string>
+    <string name="blurs_effect">Efek blur</string>
+    <string name="dark_ui_mode_summary">Aktifkan Tema Gelap di perangkat ini</string>
+
+    <!-- xd. Preferences Category -->
+    <string name="fortune_about_phone_owner_cat">Informasi pemilik</string>
+    <string name="fortune_about_phone_information_cat">Informasi perangkat</string>
+    <string name="fortune_about_phone_legalregulator_cat">Informasi Hukum dan Regulasi</string>
+    <string name="fortune_about_phone_network_cat">Informasi jaringan</string>
+    <string name="fortune_firmware_version_cat">Versi firmware</string>
+    <string name="fortune_firmware_security_cat">Keamanan firmware</string>
+    <string name="fortune_general_cat">Umum</string>
+    <string name="fortune_category_ui">Antarmuka pengguna</string>
+    <string name="fortune_category_screen">Layar</string>
+    <string name="fortune_category_density">Kepadatan</string>
+    <string name="fortune_category_gesture">Gestur layar</string>
+    <string name="fortune_category_brightness">Kecerahan</string>
+    <string name="fortune_about_core_team_cat">Pengembang inti</string>
+    <string name="fortune_about_contributor_cat">Kontributor</string>
+
+    <!-- xd. About Phone -->
+    <string name="fortune_device_name">Nama perangkat</string>
+    <string name="fortune_chipset_type">Chipset</string>
+    <string name="fortune_gpu">GPU</string>
+    <string name="fortune_camera_mp">Kamera</string>
+    <string name="fortune_screen_type">Layar</string>
+
+</resources>

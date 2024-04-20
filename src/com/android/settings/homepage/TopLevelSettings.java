@@ -22,19 +22,27 @@ import static com.android.settingslib.search.SearchIndexable.MOBILE;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
+import android.content.ComponentName;
 import android.content.res.Configuration;
+import android.content.Intent;
+import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.window.embedding.ActivityEmbeddingController;
 
@@ -52,6 +60,8 @@ import com.android.settings.widget.HomepagePreferenceLayoutHelper.HomepagePrefer
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.search.SearchIndexable;
+
+import com.android.settingslib.widget.LayoutPreference;
 
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements SplitLayoutListener,
@@ -84,7 +94,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.top_level_settings;
+        return R.xml.fortune_dashboard;
     }
 
     @Override
@@ -189,6 +199,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                     /* scrollNeeded= */ false);
         }
         super.onStart();
+        initMyAccountCard();
     }
 
     private boolean isOnlyOneActivityInTask() {
@@ -208,6 +219,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         super.onCreatePreferences(savedInstanceState, rootKey);
+        initPreferenceCard();
         int tintColor = Utils.getHomepageIconColor(getContext());
         iteratePreferences(preference -> {
             Drawable icon = preference.getIcon();
@@ -215,6 +227,58 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                 icon.setTint(tintColor);
             }
         });
+    }
+
+     private void initPreferenceCard(){
+        LayoutPreference myAccount = getPreferenceScreen().findPreference("fortune_my_account");
+        Preference myPhone = getPreferenceScreen().findPreference("fortune_my_phone");
+        SwitchPreference switchPref = getPreferenceScreen().findPreference("airplane_mode");
+
+        for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
+            Preference pref = getPreferenceScreen().getPreference(i);
+            if (pref.isVisible() && pref.getTitle() != null && 
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_top && 
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_sin && 
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_bot && 
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_mid && 
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_craft ) {
+                pref.setLayoutResource(R.layout.fortune_dashboard_pref_mid_nosum);
+            }
+            if (pref.getKey().contains("wellbeing")){
+                pref.setLayoutResource(R.layout.fortune_dashboard_pref_wellbeing);
+            }
+        }
+        switchPref.setLayoutResource(R.layout.fortune_dashboard_prefswitch_top);
+        myAccount.setLayoutResource(R.layout.fortune_dashboard_account);
+        myPhone.setLayoutResource(R.layout.fortune_dashboard_phone);
+    }
+
+    private void initMyAccountCard(){
+        final LayoutPreference myAccountPref = getPreferenceScreen().findPreference("fortune_my_account");
+
+        View root = myAccountPref.findViewById(R.id.container);
+        ImageView avatarView = myAccountPref.findViewById(R.id.fortune_avatar);
+        TextView ownerName = myAccountPref.findViewById(R.id.fortune_account_owner);
+        Bundle bundle = getArguments();
+        
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$UserSettingsActivity"));
+                startActivity(intent);
+            }
+        });
+
+        final int iconId = bundle.getInt("icon_id", 0);
+        if (iconId == 0) {
+            final UserManager userManager = (UserManager) getActivity().getSystemService(
+                    Context.USER_SERVICE);
+            final UserInfo userInfo = Utils.getExistingUser(userManager,
+                    android.os.Process.myUserHandle());
+            ownerName.setText(userInfo.name);
+            avatarView.setImageDrawable(com.android.settingslib.Utils.getUserIcon(getActivity(), userManager, userInfo));
+        }
     }
 
     @Override
@@ -376,7 +440,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.top_level_settings) {
+            new BaseSearchIndexProvider(R.xml.fortune_dashboard) {
 
                 @Override
                 protected boolean isPageSearchEnabled(Context context) {

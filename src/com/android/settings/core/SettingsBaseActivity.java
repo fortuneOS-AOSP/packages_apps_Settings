@@ -110,10 +110,9 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
         }
 
         if (isToolbarEnabled() && !isAnySetupWizard) {
-            super.setContentView(
-                    com.android.settingslib.collapsingtoolbar.R.layout.collapsing_toolbar_base_layout);
+            super.setContentView(R.layout.fortune_base_layout);
             mCollapsingToolbarLayout =
-                    findViewById(com.android.settingslib.collapsingtoolbar.R.id.collapsing_toolbar);
+                    findViewById(R.id.collapsing_toolbar);
             mAppBarLayout = findViewById(R.id.app_bar);
             if (mCollapsingToolbarLayout != null) {
                 mCollapsingToolbarLayout.setLineSpacingMultiplier(TOOLBAR_LINE_SPACING_MULTIPLIER);

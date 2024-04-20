@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2018 The Android Open Source Project
+  Copyright (C) 2021-2022 xdroid, xyzprjkt
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="top_level_settings">
+    
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="fortune_my_account"
+        android:order="-110"
+        android:layout="@layout/fortune_dashboard_account"/>
+
+    <Preference
+        android:key="fortune_my_phone"
+        android:order="-105"
+        android:title="@string/fortune_dashboard_device"
+        android:summary="fortuneOS 1.0-Usagi"
+        android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
+        settings:layout="@layout/fortune_dashboard_phone"/>
+
+    <Preference
+        android:key="top_level_craft"
+        android:order="-100"
+        android:title="@string/craft_dashboard_title"
+        android:summary="@string/craft_dashboard_summary"
+        android:fragment="org.fortune.craft.FortuneCraft"
+        settings:layout="@layout/fortune_dashboard_pref_craft"
+        settings:controller="org.fortune.craft.TopLevelFortuneCraftPreferenceController"/>
+
+    <SwitchPreference
+        android:key="airplane_mode"
+        android:title="@string/airplane_mode"
+        android:order="-96"
+        settings:controller="com.android.settings.network.AirplaneModePreferenceController"/>
+
+    <Preference
+        android:fragment="com.android.settings.network.NetworkDashboardFragment"
+        android:key="internet_settings"
+        android:title="@string/network_dashboard_title"
+        android:summary="@string/summary_placeholder"
+        android:order="-95"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        settings:keywords="@string/keywords_internet" />
+
+    <Preference
+        android:fragment="com.android.settings.network.tether.TetherSettings"
+        android:key="tether_settings"
+        android:title="@string/tether_settings_title_all"
+        android:order="-94"
+        android:summary="@string/summary_placeholder"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        settings:keywords="@string/keywords_hotspot_tethering"
+        settings:controller="com.android.settings.network.TetherPreferenceController"/>
+
+    <Preference
+        android:key="top_level_connected_devices"
+        android:order="-90"
+        android:title="@string/connected_devices_dashboard_title"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"/>
+
+    <Preference
+        android:key="top_level_display"
+        android:order="-85"
+        android:title="@string/display_settings"
+        settings:layout="@layout/fortune_dashboard_pref_top"
+        android:fragment="com.android.settings.DisplaySettings"/>
+
+    <com.android.settings.widget.RestrictedHomepagePreference
+        android:key="top_level_wallpaper"
+        android:order="-76"
+        android:title="@string/wallpaper_settings_title"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        settings:highlightableMenuKey="@string/menu_key_wallpaper"
+        settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"/>
+
+    <Preference
+        android:key="top_level_battery"
+        android:order="-75"
+        android:title="@string/power_usage_summary_title"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        android:fragment="com.android.settings.fuelgauge.batteryusage.PowerUsageSummary"/>
+
+    <Preference
+        android:key="top_level_sound"
+        android:order="-70"
+        android:title="@string/sound_settings"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        android:fragment="com.android.settings.notification.SoundSettings"/>
+
+    <Preference
+        android:key="top_level_apps"
+        android:order="-65"
+        android:title="@string/apps_dashboard_title"
+        settings:layout="@layout/fortune_dashboard_pref_top"
+        android:fragment="com.android.settings.applications.AppDashboardFragment"/>
+
+    <Preference
+        android:key="top_level_notification"
+        android:order="-60"
+        android:title="@string/configure_notification_settings"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        android:fragment="com.android.settings.notification.ConfigureNotificationSettings"/>
+
+    <Preference
+        android:key="top_level_accounts"
+        android:order="-55"
+        android:title="@string/account_dashboard_title"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        android:fragment="com.android.settings.accounts.AccountDashboardFragment"/>
+
+    <Preference
+        android:key="top_level_storage"
+        android:order="-50"
+        android:title="@string/storage_settings"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        android:fragment="com.android.settings.deviceinfo.StorageDashboardFragment"/>
+
+    <Preference
+        android:key="top_level_privacy"
+        android:order="-45"
+        android:title="@string/privacy_dashboard_title"
+        settings:layout="@layout/fortune_dashboard_pref_top"
+        android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"/>
+
+    <Preference
+        android:key="top_level_location"
+        android:order="-40"
+        android:title="@string/location_settings_title"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        android:fragment="com.android.settings.location.LocationSettings"/>
+
+    <Preference
+        android:key="top_level_emergency"
+        android:title="@string/emergency_settings_preference_title"
+        android:order="-37"
+        android:fragment="com.android.settings.emergency.EmergencyDashboardFragment"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        settings:isPreferenceVisible="@bool/config_show_emergency_settings"
+        settings:highlightableMenuKey="@string/menu_key_emergency"/>
+
+    <Preference
+        android:key="top_level_safety_center"
+        android:order="-36"
+        android:title="@string/safety_center_title"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        settings:highlightableMenuKey="@string/menu_key_safety_center"
+        settings:controller="com.android.settings.safetycenter.TopLevelSafetyCenterEntryPreferenceController"/>
+
+    <Preference
+        android:key="top_level_security"
+        android:order="-35"
+        android:title="@string/security_settings_title"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        android:fragment="com.android.settings.security.SecuritySettings"
+        settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController"/>
+
+    <Preference
+        android:key="top_level_accessibility"
+        android:order="-30"
+        android:title="@string/accessibility_settings"
+        settings:layout="@layout/fortune_dashboard_pref_top"
+        android:fragment="com.android.settings.accessibility.AccessibilitySettings"/>
+
+    <Preference
+        android:key="top_level_support"
+        android:order="-5"
+        android:title="@string/page_tab_title_support"
+        settings:layout="@layout/fortune_dashboard_pref_mid"
+        settings:controller="com.android.settings.support.SupportPreferenceController"/>
+
+    <Preference
+        android:key="top_level_system"
+        android:order="100"
+        android:title="@string/header_category_system"
+        settings:layout="@layout/fortune_dashboard_pref_bot"
+        android:fragment="com.android.settings.system.SystemDashboardFragment"/>
+
+</PreferenceScreen>
