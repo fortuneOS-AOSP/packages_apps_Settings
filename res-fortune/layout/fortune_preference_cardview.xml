@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2023-2024 AfterLife Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+  <LinearLayout
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="52.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingStart="16.0dip"
+        android:paddingEnd="16.0dip">
+        <TextView
+            android:textSize="20.0sp"
+            android:textColor="?android:textColorPrimary"
+            android:id="@android:id/title"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18.0dip"
+            android:layout_marginBottom="18.0dip"
+            android:singleLine="true"
+            android:layout_weight="1.0"
+            android:fontFamily="@*android:string/config_rawContactsLocalAccountType"
+            android:textAlignment="viewStart" />
+        <TextView
+            android:textSize="14.0sp"
+            android:ellipsize="end"
+            android:id="@android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="162.0dip"
+            android:singleLine="true"
+            android:lineSpacingMultiplier="1.2"
+            android:textAlignment="viewEnd"
+            style="@style/PreferenceSummaryTextStyle" />
+        <ImageView
+            android:layout_gravity="end|center"
+            android:id="@+id/arrow_next"
+            android:background="@drawable/adaptive_icon_shape"
+            android:padding="2.0dip"
+            android:layout_width="30.0dip"
+            android:layout_height="30.0dip"
+            android:src="@drawable/panah"
+            android:tint="?android:textColorPrimary"
+            android:layout_marginStart="14.0dip"
+            android:backgroundTint="?android:colorPrimary" />
+    </LinearLayout>
+</LinearLayout>
