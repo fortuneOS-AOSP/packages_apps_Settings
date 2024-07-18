@@ -26,16 +26,6 @@
         android:key="fortune_firmware_header"
         android:layout="@layout/fortune_firmware_header"/>
 
-    <!-- Fortune Keeper -->
-    <Preference
-        android:key="fortune_keeper"
-        android:title="@string/fortune_keeper"
-        android:summary="@string/summary_placeholder"
-        android:icon="@drawable/ic_keeper"
-        settings:enableCopying="true"
-        settings:layout="@layout/fortune_pref_card_sin_tertiary"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FortuneKeeperPreferenceController"/>
-
     <!-- Firmware Category -->
     <PreferenceCategory
         android:key="fortune_category_firmware_version"
@@ -56,9 +46,18 @@
             android:key="fortune_version"
             android:title="@string/fortune_version"
             android:summary="@string/summary_placeholder"
-            settings:layout="@layout/fortune_pref_card_bot"
+            settings:layout="@layout/fortune_pref_card_mid"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.FortuneDisplayVersionPreferenceController"/>
+
+        <!-- Fortune Keeper -->
+        <Preference
+            android:key="fortune_keeper"
+            android:title="@string/fortune_keeper"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:layout="@layout/fortune_pref_card_bot"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.FortuneKeeperPreferenceController"/>
 
     </PreferenceCategory>
 
