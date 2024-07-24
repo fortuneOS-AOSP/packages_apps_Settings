@@ -19,6 +19,7 @@ package com.android.settings.homepage;
 import static com.android.settings.search.actionbar.SearchMenuController.NEED_SEARCH_ICON_IN_ACTION_BAR;
 import static com.android.settingslib.search.SearchIndexable.MOBILE;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
@@ -29,6 +30,7 @@ import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.window.embedding.ActivityEmbeddingController;
 
@@ -199,7 +202,6 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                     /* scrollNeeded= */ false);
         }
         super.onStart();
-        initMyAccountCard();
     }
 
     private boolean isOnlyOneActivityInTask() {
@@ -230,54 +232,17 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     }
 
      private void initPreferenceCard(){
-        LayoutPreference myAccount = getPreferenceScreen().findPreference("fortune_my_account");
-        Preference myPhone = getPreferenceScreen().findPreference("fortune_my_phone");
-        SwitchPreference switchPref = getPreferenceScreen().findPreference("airplane_mode");
 
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
-            if (pref.isVisible() && pref.getTitle() != null && 
-                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_top && 
-                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_sin && 
-                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_bot && 
-                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_mid && 
-                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_craft ) {
-                pref.setLayoutResource(R.layout.fortune_dashboard_pref_mid_nosum);
+            if (pref.isVisible() && pref.getTitle() != null &&
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_phone &&
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_craft &&
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_top &&
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_full &&
+                pref.getLayoutResource() != R.layout.fortune_dashboard_pref_bot) {
+                pref.setLayoutResource(R.layout.fortune_dashboard_pref_mid);
             }
-            if (pref.getKey().contains("wellbeing")){
-                pref.setLayoutResource(R.layout.fortune_dashboard_pref_wellbeing);
-            }
-        }
-        switchPref.setLayoutResource(R.layout.fortune_dashboard_prefswitch_top);
-        myAccount.setLayoutResource(R.layout.fortune_dashboard_account);
-        myPhone.setLayoutResource(R.layout.fortune_dashboard_phone);
-    }
-
-    private void initMyAccountCard(){
-        final LayoutPreference myAccountPref = getPreferenceScreen().findPreference("fortune_my_account");
-
-        View root = myAccountPref.findViewById(R.id.container);
-        ImageView avatarView = myAccountPref.findViewById(R.id.fortune_avatar);
-        TextView ownerName = myAccountPref.findViewById(R.id.fortune_account_owner);
-        Bundle bundle = getArguments();
-        
-        root.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$UserSettingsActivity"));
-                startActivity(intent);
-            }
-        });
-
-        final int iconId = bundle.getInt("icon_id", 0);
-        if (iconId == 0) {
-            final UserManager userManager = (UserManager) getActivity().getSystemService(
-                    Context.USER_SERVICE);
-            final UserInfo userInfo = Utils.getExistingUser(userManager,
-                    android.os.Process.myUserHandle());
-            ownerName.setText(userInfo.name);
-            avatarView.setImageDrawable(com.android.settingslib.Utils.getUserIcon(getActivity(), userManager, userInfo));
         }
     }
 
