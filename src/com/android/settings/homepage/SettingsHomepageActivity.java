@@ -217,7 +217,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
 
         setupEdgeToEdge();
-        setContentView(R.layout.fortune_dashboard_container);
+        setContentView(R.layout.settings_homepage_container);
 
         // xdUI Dashboard
         // Generate random welcome massage as title header
@@ -456,7 +456,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         mSuggestionView = findViewById(R.id.suggestion_content);
         mTwoPaneSuggestionView = findViewById(R.id.two_pane_suggestion_content);
-        mHomepageView = findViewById(R.id.fortune_dashboard_container);
+        mHomepageView = findViewById(R.id.settings_homepage_container);
         // Hide the homepage for preparing the suggestion. If scrolling is needed, the list views
         // should be initialized in the invisible homepage view to prevent a scroll flicker.
         mHomepageView.setVisibility(scrollNeeded ? View.INVISIBLE : View.GONE);
