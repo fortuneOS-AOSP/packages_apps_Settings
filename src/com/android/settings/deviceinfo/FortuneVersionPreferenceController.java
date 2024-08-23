@@ -7,7 +7,10 @@
 package com.android.settings.deviceinfo;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.SystemProperties;
+import androidx.preference.Preference;
 
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
@@ -44,5 +47,19 @@ public class FortuneVersionPreferenceController extends BasePreferenceController
 
         // Example: 1.0 | Ulysses | topaz | COMMUNITY
         return version + " | " + codename + " | " + device + " | " + buildType;
+    }
+
+    @Override
+    public boolean handlePreferenceTreeClick(Preference preference) {
+        if (getPreferenceKey().equals(preference.getKey())) {
+            String baseUrl = mContext.getString(R.string.fortune_url);
+            String version = SystemProperties.get(FORTUNE_VERSION_PROP, "");
+            Uri uri = Uri.parse(baseUrl + version);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            mContext.startActivity(intent);
+            return true;
+        }
+        return super.handlePreferenceTreeClick(preference);
     }
 }

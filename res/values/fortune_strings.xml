@@ -7,5 +7,6 @@
 
     <!-- FortuneOS version -->
     <string name="fortune_version_title">FortuneOS version</string>
+    <string name="fortune_url">https://github.com/fortuneOS-AOSP</string>
 
 </resources>
